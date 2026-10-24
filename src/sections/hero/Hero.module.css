@@ -1,0 +1,156 @@
+.hero {
+  padding-block: 28px 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.heroTitle {
+  height: 72px;
+  position: relative;
+  color: var(--green);
+}
+
+.heroScript {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font:
+    41px/1 'Great Vibes',
+    cursive;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.heroSerif {
+  position: absolute;
+  top: 33px;
+  left: 0;
+  font: 42px/0.92 var(--serif);
+}
+
+.heroLead {
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.heroMeta {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.heroCta {
+  width: 242px;
+}
+
+.portraitFrame {
+  aspect-ratio: 358 / 432;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 350px) {
+  .heroScript {
+    font-size: 38px;
+  }
+
+  .heroSerif {
+    font-size: 35px;
+  }
+
+  .heroLead {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .hero {
+    max-width: 568px;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 636fr) minmax(0, 500fr);
+    gap: 64px;
+    padding-block: 48px 32px;
+  }
+
+  .heroCopy {
+    min-height: 560px;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .heroKicker {
+    min-height: 30px;
+  }
+
+  .heroTitle {
+    height: 119px;
+  }
+
+  .heroScript {
+    font-size: clamp(43px, 4.514vw, 65px);
+  }
+
+  .heroSerif {
+    top: 52px;
+    font-size: clamp(44px, 4.583vw, 66px);
+    line-height: 0.94;
+  }
+
+  .heroLead {
+    font-size: 19px;
+    line-height: 1.5;
+  }
+
+  .heroActions {
+    padding-block: 8px 12px;
+  }
+
+  .heroCta {
+    width: 270px;
+    min-height: 50px;
+    font-size: 15px;
+  }
+
+  .portraitFrame {
+    height: 560px;
+    aspect-ratio: auto;
+    padding: 10px;
+    box-shadow: inset 0 0 0 1px var(--line);
+    background: var(--card);
+    border-radius: 24px;
+  }
+
+  .portrait {
+    height: 109.259259%;
+    object-position: center;
+  }
+}
+
+.portraitCrop {
+  height: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+}

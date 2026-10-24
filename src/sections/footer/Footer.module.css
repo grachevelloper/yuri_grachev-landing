@@ -1,0 +1,130 @@
+.footer {
+  position: relative;
+  color: #f4f0e6;
+  background:
+    linear-gradient(#254d47c9, #254d47c9),
+    image-set(
+        url('../../assets/images/books-720.webp') 1x,
+        url('../../assets/images/books-1159.webp') 2x
+      )
+      center / cover;
+}
+
+.footerInner {
+  min-height: 370px;
+  padding: 44px 3px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.footerCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.footerTitle {
+  font: 30px/1.05 var(--serif);
+}
+
+.footerTagline {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #e2dfd6;
+  max-width: 335px;
+}
+
+.footerContacts {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footerLegal {
+  color: #e2dfd6;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.cookieSettings {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+@media (max-width: 350px) {
+  .footerInner {
+    padding-top: 38px;
+    min-height: 365px;
+    gap: 42px;
+  }
+
+  .footerCopy {
+    gap: 18px;
+  }
+
+  .footerTitle {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .footer {
+    background-image:
+      linear-gradient(#254d47c9, #254d47c9), url('../../assets/images/books-1159.webp');
+    background-position: left top;
+    background-size:
+      auto,
+      1159px 449px;
+  }
+
+  .footerInner {
+    min-height: 260px;
+    display: grid;
+    grid-template-columns: minmax(0, 668fr) minmax(0, 500fr);
+    gap: 32px;
+    padding: 54px 0 32px;
+  }
+
+  .footerCopy {
+    gap: 24px;
+  }
+
+  .footerTitle {
+    font-size: 40px;
+    line-height: 1.04;
+  }
+
+  .footerTagline {
+    max-width: 520px;
+    font-size: 15px;
+  }
+
+  .footerContacts {
+    padding-top: 4px;
+    gap: 12px;
+    font-size: 16px;
+  }
+
+  .footerContacts nav {
+    font-size: 14px;
+  }
+
+  .footerLegal {
+    font-size: 13px;
+  }
+}

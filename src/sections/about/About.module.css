@@ -1,0 +1,89 @@
+.about,
+.aboutCopy,
+.credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aboutCopy > p:not(:global(.kicker)) {
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+.aboutCopy :global(.section-title) {
+  line-height: 1.01;
+}
+
+.credential {
+  padding-block: 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.credential :global(.kicker) {
+  font-size: 11px;
+}
+
+.credential > p:last-child {
+  color: var(--ink);
+  font: 20px/1.2 var(--serif);
+}
+
+@media (max-width: 350px) {
+  .aboutCopy :global(.section-title) {
+    font-size: 32px;
+  }
+
+  .credential > p:last-child {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 900px) {
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, 738fr) minmax(0, 430fr);
+    gap: 32px;
+    padding-bottom: 56px;
+  }
+
+  .aboutCopy > p:not(:global(.kicker)) {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .credentials {
+    padding: 20px;
+    border: 1px solid #cfc7ba;
+    border-radius: 24px;
+    background: #f7f5ed;
+    gap: 0;
+  }
+
+  .credential {
+    padding-block: 14px;
+  }
+
+  .credential:first-child {
+    border-top: 0;
+  }
+
+  .credential :global(.kicker) {
+    font-size: 12px;
+  }
+
+  .credential > p:last-child {
+    font-size: 24px;
+  }
+
+  .credential:last-child > p:last-child {
+    font-size: 23px;
+  }
+}
+
+.credential > p:last-child {
+  white-space: pre-line;
+}

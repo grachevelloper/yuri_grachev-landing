@@ -1,0 +1,62 @@
+.deferredSection[data-ready='false'] {
+  min-height: var(--reserve, 370px);
+}
+
+:global(#work) {
+  --reserve: 1450px;
+}
+
+:global(#about) {
+  --reserve: 1069px;
+}
+
+:global(#office) {
+  --reserve: 476px;
+}
+
+:global(#publications) {
+  --reserve: 971px;
+}
+
+:global(#contact) {
+  --reserve: 839px;
+}
+
+@media (min-width: 900px) {
+  :global(#work) {
+    --reserve: 945px;
+  }
+
+  :global(#about) {
+    --reserve: 580px;
+  }
+
+  :global(#office) {
+    --reserve: 451px;
+  }
+
+  :global(#publications) {
+    --reserve: 480px;
+  }
+
+  :global(#contact) {
+    --reserve: 520px;
+  }
+
+  :global(#footer) {
+    --reserve: 260px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .deferredSection:not(.isVisible) > .sectionContent {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  .sectionContent {
+    transition:
+      opacity 650ms ease,
+      transform 650ms ease;
+  }
+}

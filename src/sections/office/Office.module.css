@@ -1,0 +1,46 @@
+.office {
+  padding-bottom: 16px;
+}
+
+.office figure {
+  position: relative;
+  aspect-ratio: 358 / 460;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.office img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.office figcaption {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  min-height: 40px;
+  width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .office figure {
+    aspect-ratio: 1200 / 435;
+    border-radius: 30px;
+  }
+
+  .office figcaption {
+    left: 30px;
+    bottom: 30px;
+    min-height: 42px;
+    width: 210px;
+  }
+}

@@ -1,0 +1,24 @@
+.cookieConsent {
+  position: fixed;
+  inset: auto 16px 16px;
+  z-index: 20;
+  max-width: 480px;
+  max-height: calc(100dvh - 32px);
+  margin-left: auto;
+  padding: 24px;
+  overflow-y: auto;
+  border: 1px solid #cfc7bb;
+  border-radius: 24px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 8px 32px #254d4720;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}

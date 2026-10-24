@@ -1,0 +1,189 @@
+.workIntro {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.workGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.workApproach {
+  border-left: 1px solid var(--green);
+  padding-left: 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.workApproach > h3 {
+  font-size: 31px;
+  line-height: 1.02;
+}
+
+.workApproach > p {
+  font-size: 16px;
+  line-height: 1.56;
+}
+
+.workAccent {
+  display: none;
+}
+
+.firstMeeting {
+  padding: 14px 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.meetingCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 16px;
+  line-height: 1.56;
+}
+
+.meetingLabel {
+  width: calc(100% + 18px);
+  white-space: nowrap;
+  font: 31px/1.02 var(--serif);
+  color: var(--ink);
+}
+
+.meetingTitle {
+  font:
+    16px/1.56 'Manrope',
+    sans-serif;
+  color: var(--green);
+  text-transform: lowercase;
+}
+
+.meetingProcess {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.meetingProcess span {
+  color: var(--clay);
+}
+
+.meetingCta {
+  width: 100%;
+  padding-inline: 10px;
+  white-space: nowrap;
+}
+
+.desktopArrow {
+  display: none;
+}
+
+@media (max-width: 350px) {
+  .workApproach > h3,
+  .meetingLabel {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 900px) {
+  .workIntro {
+    font-size: 17px;
+    color: #59635d;
+  }
+
+  .workGrid {
+    grid-template-columns: minmax(0, 520fr) minmax(0, 610fr);
+    width: 100%;
+    max-width: 1162px;
+    gap: 32px;
+  }
+
+  .workApproach {
+    padding-left: 29px;
+    gap: 18px;
+  }
+
+  .workApproach > h3 {
+    font-size: 36px;
+    line-height: 1.04;
+  }
+
+  .workApproach > p {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .workAccent {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 18px 20px;
+    border: 1px solid #cfc7ba;
+    border-radius: 18px;
+    background: #f7f5ed;
+  }
+
+  .workAccent :global(.kicker) {
+    font-size: 11px;
+  }
+
+  .workAccent h3 {
+    font-size: 21px;
+    line-height: 1.15;
+  }
+
+  .workAccent > p:last-child {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .firstMeeting {
+    padding: 24px;
+    background: #f7f5ed;
+    border: 1px solid #cfc7ba;
+    border-radius: 24px;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 28px;
+  }
+
+  .meetingCopy {
+    flex: 1;
+    min-width: 0;
+    gap: 12px;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .meetingLabel {
+    font:
+      600 11px/1.2 'Manrope',
+      sans-serif;
+    color: var(--clay);
+  }
+
+  .meetingTitle {
+    font: 38px/1.03 var(--serif);
+    color: var(--ink);
+    text-transform: none;
+  }
+
+  .meetingProcess {
+    line-height: 1.4;
+  }
+
+  .meetingCta {
+    flex: 0 0 332px;
+    width: auto;
+    border-radius: 14px;
+    line-height: 1.4;
+  }
+
+  .desktopArrow {
+    display: inline;
+    white-space: pre;
+  }
+}

@@ -1,0 +1,106 @@
+.contact {
+  display: grid;
+  gap: 16px;
+}
+
+.condition {
+  border-top: 1px solid var(--line);
+  padding-block: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.condition > p:first-child {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.condition > p:last-child {
+  color: var(--ink);
+  font: 20px/1.2 var(--serif);
+}
+
+.contactCard {
+  background: #f8f4ed;
+  border: 1px solid #cfc7bb;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactCard :global(.kicker) {
+  font-size: 11px;
+}
+
+.contactCard h3 {
+  font-size: 31px;
+  line-height: 1.03;
+}
+
+.contactDescription {
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.contactMeta {
+  display: none;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+@media (max-width: 350px) {
+  .condition > p:last-child {
+    font-size: 19px;
+  }
+
+  .contactCard h3 {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 900px) {
+  .contact {
+    grid-template-columns: minmax(0, 558fr) minmax(0, 610fr);
+    gap: 32px;
+    padding-bottom: 48px;
+    align-items: start;
+  }
+
+  .conditions {
+    gap: 14px;
+  }
+
+  .condition > p:last-child {
+    font-size: 21px;
+  }
+
+  .contactCard {
+    padding: 28px;
+    border-radius: 28px;
+  }
+
+  .contactCard h3 {
+    font-size: 38px;
+  }
+
+  .contactDescription {
+    font-size: 18px;
+  }
+
+  .contactCard :global(.button) {
+    font-size: 15px;
+  }
+
+  .contactCard :global(.button-secondary) {
+    min-height: 44px;
+  }
+
+  .contactMeta {
+    display: block;
+  }
+}

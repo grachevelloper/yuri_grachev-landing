@@ -1,0 +1,38 @@
+.privacyPage {
+  max-width: 48rem;
+  margin: 3rem auto;
+  padding: 0 16px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.privacyPage h1 {
+  margin-top: 24px;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.2;
+}
+
+.privacyPage h2 {
+  margin-top: 32px;
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.privacyPage p,
+.privacyPage ul {
+  margin-block: 16px;
+}
+
+.privacyPage a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.privacyPage li + li {
+  margin-top: 6px;
+}
+
+.privacyPage .revision {
+  color: var(--muted);
+}
