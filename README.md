@@ -1,6 +1,6 @@
 # Юрий Грачев — частная практика
 
-Лендинг на React, TypeScript и Vite по макетам Figma 320, 390 и 1440 px. Без UI-библиотек. Публикация настроена через GitHub Actions → GitHub Pages.
+Лендинг на React, TypeScript и Vite по макетам Figma 320, 390 и 1440 px. Без UI-библиотек. Сайт не опубликован. GitHub Actions проверяет код без деплоя.
 
 ## Разработка
 
@@ -78,9 +78,9 @@ node scripts/optimize-images.mjs /absolute/path/to/exports
 
 Целевой репозиторий: `grachevelloper/yuri_grachev-landing`.
 
-Адрес по умолчанию: <https://grachevelloper.github.io/yuri_grachev-landing/>.
+GitHub Pages отключён. Workflow `.github/workflows/ci.yml` запускает проверки при push в `main` и в pull request, без загрузки артефактов и публикации.
 
-Workflow `.github/workflows/pages.yml` проверяет проект и публикует `dist/` при push в `main`. Источником Pages должен быть GitHub Actions: Settings → Pages → Source → GitHub Actions.
+Конфигурация сборки подготовлена для проектного пути `/yuri_grachev-landing/`. Публикация требует отдельного согласования, включения Pages и добавления workflow деплоя.
 
 Для настроек создайте `.env` по `.env.example` локально или добавьте Repository Variables в Settings → Secrets and variables → Actions:
 
@@ -91,7 +91,7 @@ Workflow `.github/workflows/pages.yml` проверяет проект и пуб
 | `VITE_SITE_URL`            | Полный URL сайта с завершающим `/`                 |
 | `VITE_BASE_PATH`           | Путь публикации; по умолчанию берётся из URL сайта |
 
-Метрика не загружается без корректного ID и согласия посетителя. Можно отказаться и изменить выбор через настройки cookies в подвале. Вебвизор отключён. После изменения Variables запустите workflow заново через Actions → GitHub Pages → Run workflow.
+Метрика не загружается без корректного ID и согласия посетителя. Можно отказаться и изменить выбор через настройки cookies в подвале. Вебвизор отключён. Переменные применяются при следующей сборке; сами по себе они не включают публикацию.
 
 Для своего домена настройте его в Pages и DNS, включите Enforce HTTPS, задайте `VITE_SITE_URL=https://ваш-домен/` и `VITE_BASE_PATH=/`. Домен пока не предоставлен. На проектном адресе файл `robots.txt` лежит в подпапке; корневой robots домена github.io контролируется корневым сайтом владельца.
 
