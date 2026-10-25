@@ -154,3 +154,45 @@
   overflow: hidden;
   border-radius: 18px;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .heroKicker,
+  .heroTitle,
+  .heroLead,
+  .heroActions,
+  .portraitFrame {
+    animation: heroReveal 650ms ease both;
+  }
+
+  .heroTitle {
+    animation-delay: 80ms;
+  }
+
+  .heroLead {
+    animation-delay: 160ms;
+  }
+
+  .heroActions {
+    animation-delay: 240ms;
+  }
+
+  .portraitFrame {
+    animation-delay: 120ms;
+  }
+
+  .heroActions:focus-within {
+    animation: none;
+  }
+
+  @keyframes heroReveal {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
