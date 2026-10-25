@@ -2,6 +2,8 @@ import office720 from '../../assets/images/office-720.webp';
 import office1200 from '../../assets/images/office-1200.webp';
 import office1448 from '../../assets/images/office-1448.webp';
 
+import { officeContent } from './office.data';
+
 import styles from './Office.module.css';
 
 export default function Office() {
@@ -16,10 +18,10 @@ export default function Office() {
           height="1086"
           loading="lazy"
           decoding="async"
-          alt="Кабинет для очных встреч: диван, кресло и растения у окна"
+          alt={officeContent.imageAlt}
         />
 
-        <figcaption>Где я работаю очно</figcaption>
+        <figcaption>{officeContent.caption}</figcaption>
       </figure>
     </div>
   );

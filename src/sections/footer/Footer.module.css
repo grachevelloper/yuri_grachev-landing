@@ -15,7 +15,7 @@
   padding: 44px 3px 24px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 44px;
 }
 
 .footerCopy {
@@ -25,7 +25,7 @@
 }
 
 .footerTitle {
-  font: 30px/1.05 var(--serif);
+  font: clamp(24px, 7.7vw, 30px)/1.05 var(--serif);
 }
 
 .footerTagline {

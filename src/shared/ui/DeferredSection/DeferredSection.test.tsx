@@ -76,6 +76,34 @@ describe('deferred sections', () => {
     expect(target.getAttribute('data-ready')).toBe('true');
   });
 
+  it('shows an accessible placeholder until the lazy content is ready', async () => {
+    history.replaceState(null, '', '#loading-target');
+
+    const SectionContent = () => <p>Готовый раздел</p>;
+    let finishLoading = () => {};
+    const pending = new Promise<{ default: typeof SectionContent }>((resolve) => {
+      finishLoading = () => resolve({ default: SectionContent });
+    });
+    const Section = lazy(() => pending);
+    const { container } = await render(
+      <DeferredSection id="loading-target">
+        <Section />
+      </DeferredSection>,
+    );
+
+    expect(container.querySelector('[role="status"]')?.getAttribute('aria-label')).toBe(
+      'Загружается раздел',
+    );
+    expect(container.querySelector('#loading-target')?.getAttribute('data-ready')).toBe('false');
+    expect(container.textContent).not.toContain('Готовый раздел');
+
+    await act(async () => finishLoading());
+
+    expect(container.querySelector('[role="status"]')).toBeNull();
+    expect(container.querySelector('#loading-target')?.getAttribute('data-ready')).toBe('true');
+    expect(container.textContent).toContain('Готовый раздел');
+  });
+
   it('loads a direct anchor target without waiting for viewport observation', async () => {
     history.replaceState(null, '', '#direct-target');
 

@@ -1,0 +1,67 @@
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 640px;
+  opacity: 0.65;
+}
+
+.skeleton span {
+  display: block;
+  border-radius: 4px;
+  background: var(--line);
+}
+
+.skeleton .kicker {
+  width: 72px;
+  height: 8px;
+  background: var(--clay);
+  opacity: 0.4;
+}
+
+.heading,
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heading span {
+  width: 88%;
+  height: 28px;
+}
+
+.heading span:last-child {
+  width: 62%;
+}
+
+.copy span {
+  height: 10px;
+}
+
+.copy span:last-child {
+  width: 76%;
+}
+
+@media (min-width: 900px) {
+  .heading span {
+    height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton {
+    animation: breathe 2.4s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      opacity: 0.45;
+    }
+
+    50% {
+      opacity: 0.8;
+    }
+  }
+}

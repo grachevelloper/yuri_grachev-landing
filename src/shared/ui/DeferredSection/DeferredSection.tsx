@@ -2,6 +2,7 @@ import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 
 import SectionErrorBoundary from '../SectionErrorBoundary/SectionErrorBoundary';
+import SectionPlaceholder from '../SectionPlaceholder/SectionPlaceholder';
 
 import styles from './DeferredSection.module.css';
 
@@ -96,13 +97,7 @@ export default function DeferredSection({ id, children }: DeferredSectionProps) 
     >
       {loaded && (
         <SectionErrorBoundary>
-          <Suspense
-            fallback={
-              <p className="container" role="status">
-                Загрузка…
-              </p>
-            }
-          >
+          <Suspense fallback={<SectionPlaceholder />}>
             <Content id={id} onReady={markReady}>
               {children}
             </Content>

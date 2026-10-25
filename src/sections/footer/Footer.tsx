@@ -1,4 +1,10 @@
+import { Fragment } from 'react';
+
+import AddressLink from '../../shared/ui/AddressLink/AddressLink';
+import { navigationLinks } from '../../shared/config/navigation.data';
 import { contacts } from '../../shared/config/contacts';
+
+import { footerContent } from './footer.data';
 
 import styles from './Footer.module.css';
 
@@ -8,40 +14,39 @@ export default function Footer({ onCookieSettings }: { onCookieSettings?: () => 
       <div className={`container ${styles.footerInner}`}>
         <div className={styles.footerCopy}>
           <p className={styles.footerTitle}>
-            Психоаналитическая
+            {footerContent.titleFirstLine}
             <br />
-            психотерапия
+            {footerContent.titleSecondLine}
           </p>
 
-          <p className={styles.footerTagline}>
-            Пространство, в котором не нужно становиться проще, чтобы начать лучше себя понимать.
-          </p>
+          <p className={styles.footerTagline}>{footerContent.tagline}</p>
         </div>
 
         <div className={styles.footerContacts}>
-          <p>Красный проспект, 82</p>
+          <p>
+            <AddressLink />
+          </p>
 
           <a href={contacts.telegram} target="_blank" rel="noopener noreferrer">
-            Telegram для первой связи
+            {footerContent.telegramCta}
           </a>
 
-          <nav aria-label="Навигация в подвале">
-            <a href="#work">О работе</a>
-            <span aria-hidden="true"> · </span>
-
-            <a href="#about">Обо мне</a>
-            <span aria-hidden="true"> · </span>
-
-            <a href="#publications">Публикации</a>
+          <nav aria-label={footerContent.navigationLabel}>
+            {navigationLinks.map((link, index) => (
+              <Fragment key={link.href}>
+                {index > 0 && <span aria-hidden="true"> · </span>}
+                <a href={link.href}>{link.label}</a>
+              </Fragment>
+            ))}
           </nav>
 
           <p className={styles.footerLegal}>
-            © 2026 ·{' '}
-            <a href={`${import.meta.env.BASE_URL}privacy.html`}>Политика конфиденциальности</a>
+            {footerContent.copyright}{' '}
+            <a href={`${import.meta.env.BASE_URL}privacy.html`}>{footerContent.privacyLink}</a>
           </p>
           {onCookieSettings && (
             <button type="button" className={styles.cookieSettings} onClick={onCookieSettings}>
-              Настройки cookies
+              {footerContent.cookieSettings}
             </button>
           )}
         </div>

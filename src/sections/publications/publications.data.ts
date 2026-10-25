@@ -1,3 +1,9 @@
+export const publicationsContent = {
+  kicker: 'ПУБЛИКАЦИИ',
+  title: 'Тексты как способ присмотреться к моему стилю мышления',
+  articleCta: 'Читать в Telegram →',
+};
+
 export const articles = [
   {
     title: 'Любовь, контроль и возможность другого быть собой',

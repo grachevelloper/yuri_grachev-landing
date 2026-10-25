@@ -4,7 +4,7 @@
 }
 
 .condition {
-  border-top: 1px solid var(--line);
+  box-shadow: inset 0 1px var(--line);
   padding-block: 14px;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
 
 .contactCard {
   background: #f8f4ed;
-  border: 1px solid #cfc7bb;
+  box-shadow: inset 0 0 0 1px #cfc7bb;
   border-radius: 20px;
   padding: 20px;
   display: flex;
@@ -38,12 +38,18 @@
 
 .contactCard h3 {
   font-size: 31px;
-  line-height: 1.03;
+  line-height: 1.02;
 }
 
 .contactDescription {
   font-size: 16px;
   line-height: 1.55;
+}
+
+.contactActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .contactMeta {
@@ -86,6 +92,7 @@
 
   .contactCard h3 {
     font-size: 38px;
+    line-height: 1.03;
   }
 
   .contactDescription {
@@ -96,8 +103,16 @@
     font-size: 15px;
   }
 
+  .contactActions {
+    gap: 10px;
+  }
+
   .contactCard :global(.button-secondary) {
     min-height: 44px;
+  }
+
+  .mobilePrefix {
+    display: none;
   }
 
   .contactMeta {

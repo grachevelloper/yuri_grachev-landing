@@ -1,4 +1,8 @@
+import { Fragment } from 'react';
+
 import { contacts } from '../../shared/config/contacts';
+
+import { workContent } from './work.data';
 import WorkTopics from './components/WorkTopics/WorkTopics';
 
 import styles from './Work.module.css';
@@ -6,57 +10,47 @@ import styles from './Work.module.css';
 export default function Work() {
   return (
     <section className="container section flow" aria-labelledby="work-title">
-      <p className="kicker">О РАБОТЕ</p>
+      <p className="kicker">{workContent.kicker}</p>
 
       <h2 id="work-title" className="section-title">
-        Не обязательно заранее понимать, что именно с вами происходит
+        {workContent.title}
       </h2>
 
-      <p className={styles.workIntro}>
-        Трудности могут касаться отношений с другими, отношения к себе или собственных решений. За
-        похожими переживаниями у разных людей стоят совсем разные истории.
-      </p>
+      <p className={styles.workIntro}>{workContent.intro}</p>
 
       <div className={styles.workGrid}>
         <WorkTopics />
 
         <div className={styles.workApproach}>
-          <h3>В терапии не нужно становиться проще, правильнее или удобнее</h3>
+          <h3>{workContent.approachTitle}</h3>
 
-          <p>
-            Мне важно не подгонять человека под готовое объяснение. Вместо этого мы постепенно
-            разбираемся в том, как устроена именно ваша внутренняя логика: почему одни чувства
-            оказываются особенно сильными, чего приходится избегать, что помогает сохранять
-            устойчивость и что мешает жить так, как хотелось бы.
-          </p>
+          <p>{workContent.approachBody}</p>
 
           <aside className={styles.workAccent}>
-            <p className="kicker">НЕ ТОЛЬКО О ПРОБЛЕМАХ</p>
+            <p className="kicker">{workContent.accentKicker}</p>
 
-            <h3>В терапии есть место не только тому, что беспокоит.</h3>
+            <h3>{workContent.accentTitle}</h3>
 
-            <p>
-              Иногда разговор о самых обыкновенных вещах в психоаналитическом кабинете обретает
-              новые краски и открывает новые грани себя.
-            </p>
+            <p>{workContent.accentBody}</p>
           </aside>
         </div>
       </div>
 
       <div className={styles.firstMeeting}>
         <div className={styles.meetingCopy}>
-          <p className={styles.meetingLabel}>ПЕРВАЯ ВСТРЕЧА</p>
+          <p className={styles.meetingLabel}>{workContent.meetingKicker}</p>
 
-          <h3 className={styles.meetingTitle}>Ни к чему не обязывает.</h3>
+          <h3 className={styles.meetingTitle}>{workContent.meetingTitle}</h3>
 
-          <p>
-            Мы познакомимся, обсудим, что привело вас в терапию, и попробуем понять, может ли такой
-            способ работы быть вам полезен. Если решим продолжать, договоримся о регулярности встреч
-            и других условиях.
-          </p>
+          <p>{workContent.meetingBody}</p>
 
           <p className={styles.meetingProcess}>
-            Первая встреча <span>→</span> решение о продолжении <span>→</span> регулярная работа
+            {workContent.meetingSteps.map((step, index) => (
+              <Fragment key={step}>
+                {index > 0 && <span> → </span>}
+                {step}
+              </Fragment>
+            ))}
           </p>
         </div>
 
@@ -66,7 +60,7 @@ export default function Work() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Договориться о первой встрече
+          {workContent.meetingCta}
           <span className={styles.desktopArrow}> →</span>
         </a>
       </div>

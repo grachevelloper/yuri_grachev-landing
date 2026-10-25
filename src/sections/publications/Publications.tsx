@@ -1,4 +1,4 @@
-import { articles } from './publications.data';
+import { publicationsContent, articles } from './publications.data';
 
 import styles from './Publications.module.css';
 
@@ -8,10 +8,10 @@ export default function Publications() {
       className={`container section ${styles.publications} flow`}
       aria-labelledby="publications-title"
     >
-      <p className="kicker">ПУБЛИКАЦИИ</p>
+      <p className="kicker">{publicationsContent.kicker}</p>
 
       <h2 id="publications-title" className="section-title">
-        Тексты как способ присмотреться к моему стилю мышления
+        {publicationsContent.title}
       </h2>
 
       <div className={styles.articles}>
@@ -29,7 +29,7 @@ export default function Publications() {
               <p>{article.excerpt}</p>
             </div>
 
-            <span className={styles.articleLink}>Читать в Telegram →</span>
+            <span className={styles.articleLink}>{publicationsContent.articleCta}</span>
           </a>
         ))}
       </div>
