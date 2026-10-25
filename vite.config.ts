@@ -7,9 +7,7 @@ import { siteMetadata } from './config/siteMetadata';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), 'VITE_');
-  const siteUrl = new URL(
-    env.VITE_SITE_URL || 'https://grachevelloper.github.io/yuri_grachev-landing/',
-  );
+  const siteUrl = new URL(env.VITE_SITE_URL || 'https://rpa4e8.ru/');
 
   if (!siteUrl.pathname.endsWith('/')) {
     siteUrl.pathname += '/';

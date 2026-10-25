@@ -43,8 +43,32 @@ describe('Metrika loader', () => {
       [
         123456,
         'init',
-        { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false },
+        {
+          defer: true,
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true,
+          webvisor: false,
+        },
       ],
+      [123456, 'hit', window.location.href, { referer: document.referrer, title: document.title }],
+    ]);
+  });
+
+  it('preserves campaign tags and the incoming referrer in the page view', async () => {
+    history.replaceState(null, '', '/?utm_source=vk&utm_medium=social#contact');
+    vi.spyOn(document, 'referrer', 'get').mockReturnValue('https://vk.com/');
+
+    const { startMetrika } = await import('./metrika');
+
+    startMetrika();
+    startMetrika();
+
+    expect(document.querySelector('script')?.src).toBe(
+      'https://mc.yandex.ru/metrika/tag.js?id=123456',
+    );
+    expect(window.ym?.a?.filter(([, method]) => method === 'hit')).toEqual([
+      [123456, 'hit', window.location.href, { referer: 'https://vk.com/', title: document.title }],
     ]);
   });
 
@@ -85,6 +109,6 @@ describe('Metrika loader', () => {
     startMetrika();
 
     expect(document.querySelectorAll('script')).toHaveLength(1);
-    expect(window.ym?.a).toHaveLength(1);
+    expect(window.ym?.a).toHaveLength(2);
   });
 });

@@ -25,7 +25,7 @@ function requestScript() {
   tagScript = script;
 
   script.async = true;
-  script.src = 'https://mc.yandex.ru/metrika/tag.js';
+  script.src = `https://mc.yandex.ru/metrika/tag.js?id=${analyticsCounterId}`;
 
   script.onload = () => {
     tagLoaded = true;
@@ -60,10 +60,16 @@ export function startMetrika() {
   counterActive = true;
 
   window.ym(analyticsCounterId, 'init', {
+    defer: true,
     clickmap: true,
     trackLinks: true,
     accurateTrackBounce: true,
     webvisor: false,
+  });
+
+  window.ym(analyticsCounterId, 'hit', window.location.href, {
+    referer: document.referrer,
+    title: document.title,
   });
 
   requestScript();
