@@ -5,7 +5,7 @@ import { click, render } from '../../../../test/render';
 import WorkTopics from './WorkTopics';
 
 describe('work topic accordions', () => {
-  it('opens the selected topic and closes the previous one on mobile', async () => {
+  it('opens and closes topics independently on mobile', async () => {
     const media = window.matchMedia('(min-width: 900px)');
 
     Object.defineProperty(media, 'matches', { get: () => false });
@@ -19,14 +19,21 @@ describe('work topic accordions', () => {
 
     await click(buttons[1]);
 
-    expect(buttons[0].getAttribute('aria-expanded')).toBe('false');
+    expect(buttons[0].getAttribute('aria-expanded')).toBe('true');
     expect(buttons[1].getAttribute('aria-expanded')).toBe('true');
-    expect(container.querySelector('#work-topic-0')?.hasAttribute('hidden')).toBe(true);
-    expect(container.querySelector('#work-topic-1')?.hasAttribute('hidden')).toBe(false);
+    expect(container.querySelector('#work-topic-0')?.getAttribute('aria-hidden')).toBe('false');
+    expect(container.querySelector('#work-topic-1')?.getAttribute('aria-hidden')).toBe('false');
 
     await click(buttons[1]);
 
     expect(buttons[1].getAttribute('aria-expanded')).toBe('false');
+    expect(buttons[0].getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('#work-topic-1')?.getAttribute('aria-hidden')).toBe('true');
+    expect(container.querySelector('#work-topic-1')?.hasAttribute('inert')).toBe(true);
+
+    await click(buttons[2]);
+    expect(buttons[0].getAttribute('aria-expanded')).toBe('true');
+    expect(buttons[2].getAttribute('aria-expanded')).toBe('true');
   });
 
   it('shows all topics when the viewport switches to desktop', async () => {
@@ -48,6 +55,7 @@ describe('work topic accordions', () => {
       expect(button.disabled).toBe(true);
     }
 
-    expect(container.querySelector('[hidden]')).toBeNull();
+    expect(container.querySelector('[aria-hidden="true"][id]')).toBeNull();
+    expect(container.querySelector('[inert]')).toBeNull();
   });
 });

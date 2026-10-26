@@ -8,17 +8,27 @@ import { workTopics } from '../../work.data';
 import styles from './WorkTopics.module.css';
 
 export default function WorkTopics() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+  const [expandedTopics, setExpandedTopics] = useState(() => new Set([0]));
   const isDesktop = useMediaQuery('(min-width: 900px)');
 
   function toggleTopic(index: number) {
-    setExpandedIndex((currentIndex) => (currentIndex === index ? null : index));
+    setExpandedTopics((current) => {
+      const next = new Set(current);
+
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+
+      return next;
+    });
   }
 
   return (
     <div className={styles.topics}>
       {workTopics.map((topic, index) => {
-        const isExpanded = isDesktop || expandedIndex === index;
+        const isExpanded = isDesktop || expandedTopics.has(index);
         const panelId = `work-topic-${index}`;
 
         return (
@@ -43,9 +53,17 @@ export default function WorkTopics() {
                 </button>
               </h3>
 
-              <p id={panelId} hidden={!isExpanded}>
-                {topic.body}
-              </p>
+              <div
+                id={panelId}
+                className={styles.panel}
+                data-expanded={isExpanded}
+                aria-hidden={!isExpanded}
+                inert={!isExpanded}
+              >
+                <div className={styles.panelInner}>
+                  <p>{topic.body}</p>
+                </div>
+              </div>
             </div>
           </div>
         );

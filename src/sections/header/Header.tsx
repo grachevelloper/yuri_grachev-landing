@@ -1,5 +1,4 @@
 import { navigationLinks } from '../../shared/config/navigation.data';
-import { contacts } from '../../shared/config/contacts';
 
 import { headerContent } from './header.data';
 
@@ -21,12 +20,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <a
-          className={`button ${styles.headerCta}`}
-          href={contacts.telegram}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a className={`button ${styles.headerCta}`} href="#contact">
           {headerContent.cta}
         </a>
       </div>
