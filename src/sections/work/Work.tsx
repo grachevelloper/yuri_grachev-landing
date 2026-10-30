@@ -1,7 +1,5 @@
 import { Fragment } from 'react';
 
-import { contacts } from '../../shared/config/contacts';
-
 import { workContent } from './work.data';
 import WorkTopics from './components/WorkTopics/WorkTopics';
 
@@ -54,12 +52,7 @@ export default function Work() {
           </p>
         </div>
 
-        <a
-          className={`button ${styles.meetingCta}`}
-          href={contacts.telegram}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a className={`button ${styles.meetingCta}`} href="#contact">
           {workContent.meetingCta}
           <span className={styles.desktopArrow}> →</span>
         </a>

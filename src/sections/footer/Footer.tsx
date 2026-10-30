@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 
 import AddressLink from '../../shared/ui/AddressLink/AddressLink';
 import { navigationLinks } from '../../shared/config/navigation.data';
-import { contacts } from '../../shared/config/contacts';
 
 import { footerContent } from './footer.data';
 
@@ -27,9 +26,7 @@ export default function Footer({ onCookieSettings }: { onCookieSettings?: () => 
             <AddressLink />
           </p>
 
-          <a href={contacts.telegram} target="_blank" rel="noopener noreferrer">
-            {footerContent.telegramCta}
-          </a>
+          <a href="#contact">{footerContent.contactCta}</a>
 
           <nav aria-label={footerContent.navigationLabel}>
             {navigationLinks.map((link, index) => (

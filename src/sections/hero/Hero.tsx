@@ -1,4 +1,3 @@
-import { contacts } from '../../shared/config/contacts';
 import portrait360 from '../../assets/images/portrait-360.webp';
 import portrait720 from '../../assets/images/portrait-720.webp';
 import portrait960 from '../../assets/images/portrait-960.webp';
@@ -23,12 +22,7 @@ export default function Hero() {
         <div className={styles.heroActions}>
           <p className={styles.heroMeta}>{heroContent.meta}</p>
 
-          <a
-            className={`button ${styles.heroCta}`}
-            href={contacts.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className={`button ${styles.heroCta}`} href="#contact">
             {heroContent.cta}
           </a>
         </div>

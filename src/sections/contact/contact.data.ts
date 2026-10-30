@@ -4,12 +4,12 @@ export const contactContent = {
   kicker: 'ПРАКТИЧЕСКАЯ ИНФОРМАЦИЯ',
   title: 'Условия и формат',
   meetingKicker: 'ПЕРВАЯ ВСТРЕЧА',
-  meetingTitle: 'Записаться на первую встречу',
+  meetingTitle: 'Договориться о встрече',
   meetingDescription:
     'Чтобы договориться о первой встрече, достаточно написать в Telegram или MAX. Время и формат обсудим в переписке.',
   telegramCta: 'Написать в Telegram',
   maxCta: 'Написать в MAX',
-  meta: 'Очно и онлайн  ·  45–50 минут  ·  3 500 ₽',
+  meta: 'Очно и онлайн  ·  45–50 минут  ·  4 000 ₽',
 };
 
 export const conditions = [
@@ -20,5 +20,5 @@ export const conditions = [
     value: 'В спокойном месте, где вам будет удобно говорить',
   },
   { label: 'ДЛИТЕЛЬНОСТЬ СЕССИИ', value: '45–50 минут' },
-  { label: 'СТОИМОСТЬ СЕССИИ', value: '3 500 ₽' },
+  { label: 'СТОИМОСТЬ СЕССИИ', value: '4 000 ₽' },
 ];
