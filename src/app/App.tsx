@@ -1,22 +1,25 @@
-import { lazy, Suspense, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 
 import Header from '../sections/header/Header';
 import Hero from '../sections/hero/Hero';
+import Work from '../sections/work/Work';
+import About from '../sections/about/About';
+import Office from '../sections/office/Office';
+import Publications from '../sections/publications/Publications';
+import Contact from '../sections/contact/Contact';
+import Footer from '../sections/footer/Footer';
 import { analyticsCounterId } from '../shared/config/analytics';
-import DeferredSection from '../shared/ui/DeferredSection/DeferredSection';
+import RevealSection from '../shared/ui/RevealSection/RevealSection';
 
-const Work = lazy(() => import('../sections/work/Work'));
-const About = lazy(() => import('../sections/about/About'));
-const Office = lazy(() => import('../sections/office/Office'));
-const Publications = lazy(() => import('../sections/publications/Publications'));
-const Contact = lazy(() => import('../sections/contact/Contact'));
-const Footer = lazy(() => import('../sections/footer/Footer'));
 const CookieConsent = lazy(() => import('../features/cookie-consent/CookieConsent'));
 
 const hasAnalytics = analyticsCounterId !== undefined;
 
 export default function App() {
+  const [mounted, setMounted] = useState(false);
   const [cookieSettingsOpen, setCookieSettingsOpen] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
     <>
@@ -29,32 +32,32 @@ export default function App() {
       <main id="main">
         <Hero />
 
-        <DeferredSection id="work">
+        <RevealSection id="work">
           <Work />
-        </DeferredSection>
+        </RevealSection>
 
-        <DeferredSection id="about">
+        <RevealSection id="about">
           <About />
-        </DeferredSection>
+        </RevealSection>
 
-        <DeferredSection id="office">
+        <RevealSection id="office">
           <Office />
-        </DeferredSection>
+        </RevealSection>
 
-        <DeferredSection id="publications">
+        <RevealSection id="publications">
           <Publications />
-        </DeferredSection>
+        </RevealSection>
 
-        <DeferredSection id="contact">
+        <RevealSection id="contact">
           <Contact />
-        </DeferredSection>
+        </RevealSection>
       </main>
 
-      <DeferredSection id="footer">
+      <RevealSection id="footer">
         <Footer onCookieSettings={hasAnalytics ? () => setCookieSettingsOpen(true) : undefined} />
-      </DeferredSection>
+      </RevealSection>
 
-      {hasAnalytics && (
+      {hasAnalytics && mounted && (
         <Suspense fallback={null}>
           <CookieConsent
             settingsOpen={cookieSettingsOpen}

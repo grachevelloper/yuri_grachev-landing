@@ -5,7 +5,7 @@ import { defineConfig, loadEnv } from 'vite';
 
 import { siteMetadata } from './config/siteMetadata';
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, isSsrBuild }) => {
   const env = loadEnv(mode, process.cwd(), 'VITE_');
   const siteUrl = new URL(env.VITE_SITE_URL || 'https://rpa4e8.ru/');
 
@@ -18,10 +18,12 @@ export default defineConfig(({ mode }) => {
     plugins: [react(), siteMetadata({ siteUrl, verificationCode: env.VITE_YANDEX_VERIFICATION })],
     build: {
       rollupOptions: {
-        input: {
-          main: resolve('index.html'),
-          privacy: resolve('privacy.html'),
-        },
+        input: isSsrBuild
+          ? undefined
+          : {
+              main: resolve('index.html'),
+              privacy: resolve('privacy.html'),
+            },
       },
     },
   };

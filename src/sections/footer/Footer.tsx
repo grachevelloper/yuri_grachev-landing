@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 
 import AddressLink from '../../shared/ui/AddressLink/AddressLink';
 import { navigationLinks } from '../../shared/config/navigation.data';
@@ -8,8 +8,32 @@ import { footerContent } from './footer.data';
 import styles from './Footer.module.css';
 
 export default function Footer({ onCookieSettings }: { onCookieSettings?: () => void }) {
+  const ref = useRef<HTMLElement>(null);
+  const [backgroundReady, setBackgroundReady] = useState(false);
+
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      setBackgroundReady(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBackgroundReady(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '400px' },
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <footer className={styles.footer}>
+    <footer ref={ref} className={styles.footer} data-background-ready={backgroundReady}>
       <div className={`container ${styles.footerInner}`}>
         <div className={styles.footerCopy}>
           <p className={styles.footerTitle}>

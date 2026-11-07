@@ -1,0 +1,12 @@
+@media (prefers-reduced-motion: no-preference) {
+  :not(.isVisible) > .sectionContent {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  .sectionContent {
+    transition:
+      opacity 650ms ease,
+      transform 650ms ease;
+  }
+}

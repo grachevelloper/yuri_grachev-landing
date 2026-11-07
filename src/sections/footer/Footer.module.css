@@ -1,6 +1,10 @@
 .footer {
   position: relative;
   color: #f4f0e6;
+  background: #254d47;
+}
+
+.footer[data-background-ready='true'] {
   background:
     linear-gradient(#254d47c9, #254d47c9),
     image-set(
@@ -83,7 +87,7 @@
 }
 
 @media (min-width: 900px) {
-  .footer {
+  .footer[data-background-ready='true'] {
     background-image:
       linear-gradient(#254d47c9, #254d47c9), url('../../assets/images/books-1159.webp');
     background-position: left top;

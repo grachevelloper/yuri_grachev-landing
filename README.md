@@ -12,7 +12,7 @@ npm run dev
 ```
 
 - `npm run verify` — форматирование, типы, тесты и сборка.
-- `npm run build` — сборка в `dist/`.
+- `npm run build` — сборка в `dist/` с предварительным HTML всей главной страницы.
 - `npm run preview` — просмотр сборки локально.
 - `npm run format` — форматирование кода.
 
@@ -24,6 +24,8 @@ npm run dev
 - Изображения и шрифты — `src/assets/`.
 - Политика — `privacy.html`, исходный документ — `public/privacy.pdf`.
 - SEO — `index.html`, `privacy.html` и `config/siteMetadata.ts`.
+- Предварительный HTML — `scripts/build.mjs` и `src/app/render.tsx`.
+- Файлы подтверждения Google и Яндекса — `public/google*.html`, `public/yandex_*.html`; сохранять после подтверждения.
 
 Правила работы с кодом — в [AGENTS.md](AGENTS.md).
 
