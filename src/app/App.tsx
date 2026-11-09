@@ -11,11 +11,15 @@ import Footer from '../sections/footer/Footer';
 import { analyticsCounterId } from '../shared/config/analytics';
 import RevealSection from '../shared/ui/RevealSection/RevealSection';
 
+import { useSectionNavigation } from '../shared/hooks/useSectionNavigation';
+
 const CookieConsent = lazy(() => import('../features/cookie-consent/CookieConsent'));
 
 const hasAnalytics = analyticsCounterId !== undefined;
 
 export default function App() {
+  useSectionNavigation();
+
   const [mounted, setMounted] = useState(false);
   const [cookieSettingsOpen, setCookieSettingsOpen] = useState(false);
 
@@ -29,7 +33,7 @@ export default function App() {
 
       <Header />
 
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <Hero />
 
         <RevealSection id="work">

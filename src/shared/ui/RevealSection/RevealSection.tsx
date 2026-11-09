@@ -49,7 +49,7 @@ export default function RevealSection({ id, children }: RevealSectionProps) {
   }, [id]);
 
   return (
-    <div id={id} ref={ref} className={visible ? styles.isVisible : undefined}>
+    <div id={id} tabIndex={-1} ref={ref} className={visible ? styles.isVisible : undefined}>
       <div className={styles.sectionContent}>{children}</div>
     </div>
   );
